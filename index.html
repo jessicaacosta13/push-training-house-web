@@ -23,6 +23,7 @@
   .hero { position:relative; padding:40px 24px; text-align:center; background-image:linear-gradient(rgba(39,77,155,0.72),rgba(39,77,155,0.85)), url('img/hero-bg.jpg'); background-size:cover; background-position:center; }
   .hero h1 { color:#F8F8FA; font-size:30px; line-height:1.15; }
   .hero p { color:#D3D1C7; font-size:14px; margin-top:10px; line-height:1.6; }
+  .hero-photo { display:none; }
   .cta { margin-top:18px; background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:14px 20px; font-weight:600; font-size:14px; font-family:'Montserrat',sans-serif; cursor:pointer; text-decoration:none; display:inline-block; }
   .section { padding:28px 24px; }
   .section h2 { color:#274D9B; font-size:20px; margin-bottom:10px; }
@@ -78,6 +79,54 @@
   .faq summary::after { content:"+"; color:#274D9B; font-size:18px; font-weight:700; }
   .faq details[open] summary::after { content:"\2013"; }
   .faq .faq-a { font-size:12px; color:#616160; margin-top:8px; line-height:1.6; }
+
+  @media (min-width: 900px) {
+    .site { max-width:1100px; box-shadow:0 0 40px rgba(0,0,0,0.12); }
+
+    .navbar { padding:18px 48px; }
+    .navbar img { height:36px; }
+    .menu-btn { display:none; }
+    .nav-menu { display:flex; flex-direction:row; background:none; border-bottom:none; position:static; gap:32px; padding-right:48px; justify-content:flex-end; }
+    .nav-menu a { border-top:none; padding:0; font-size:14px; }
+
+    .hero { display:flex; align-items:stretch; background-image:none; padding:0; text-align:left; min-height:520px; }
+    .hero-text { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:0 60px; background:linear-gradient(135deg,#274D9B,#1c3a75); }
+    .hero-text h1 { font-size:46px; }
+    .hero-text p { font-size:16px; max-width:440px; }
+    .hero-text .cta { margin-top:26px; font-size:15px; padding:16px 26px; }
+    .hero-photo { display:block; width:46%; object-fit:cover; }
+
+    .section { padding:56px 60px; }
+    .section h2 { font-size:26px; }
+    .section p { font-size:15px; max-width:720px; }
+
+    .clases { flex-direction:row; gap:22px; }
+    .clase-card { flex:1; padding:18px; }
+
+    .cuponeras { padding:56px 60px; }
+    .tiers { display:flex; gap:22px; align-items:flex-start; }
+    .tier-block { flex:1; }
+    .cuponeras-note { max-width:900px; }
+
+    .horarios { padding:56px 60px; }
+    .horarios-groups { display:flex; gap:24px; }
+    .horarios-group { flex:1; margin-bottom:0; }
+
+    .faq { padding:56px 60px; }
+    .faq details { max-width:800px; }
+
+    .testimonios { padding:56px 60px; }
+    .testimonios-carousel { display:grid; grid-template-columns:repeat(3,1fr); overflow:visible; padding:0; margin:20px 0 0; }
+    .testimonio-card { scroll-snap-align:none; }
+
+    .mapa { padding:0 60px 56px; }
+    .mapa iframe { height:320px; }
+
+    .cta-final { padding:56px 60px; }
+    .cta-final img { max-width:420px; }
+
+    .contacto { padding:56px 60px; }
+  }
 </style>
 </head>
 <body>
@@ -99,9 +148,12 @@
   </div>
 
   <div class="hero">
-    <h1>CHALLENGE YOUR LIMITS</h1>
-    <p>CrossFit, Funcional y Hybrid para todos los niveles, con una comunidad que te empuja a superar tus límites.</p>
-    <a class="cta" href="https://forms.gle/ESGEEPnBNy95XS2c7" target="_blank" rel="noopener noreferrer">Reservá tu clase de prueba GRATIS</a>
+    <div class="hero-text">
+      <h1>CHALLENGE YOUR LIMITS</h1>
+      <p>CrossFit, Funcional y Hybrid para todos los niveles, con una comunidad que te empuja a superar tus límites.</p>
+      <a class="cta" href="https://forms.gle/ESGEEPnBNy95XS2c7" target="_blank" rel="noopener noreferrer">Reservá tu clase de prueba GRATIS</a>
+    </div>
+    <img class="hero-photo" src="img/hero-bg.jpg" alt="Entrenamiento en PUSH Training House">
   </div>
 
   <div class="section">
@@ -158,16 +210,24 @@
 
   <div class="cuponeras" id="cuponeras">
     <h2>CUPONERAS</h2>
-    <div class="tier-label">STANDARD</div>
-    <div class="tier-row a"><span>8 clases</span><span>$1800</span></div>
-    <div class="tier-row b"><span>12 clases</span><span>$2050</span></div>
-    <div class="tier-row a last"><span>Pase libre</span><span>$2200</span></div>
-    <div class="tier-label">PREMIUM</div>
-    <div class="tier-row a"><span>8 clases</span><span>$2050</span></div>
-    <div class="tier-row b"><span>12 clases</span><span>$2200</span></div>
-    <div class="tier-row a last"><span>Pase libre</span><span>$2400</span></div>
-    <div class="tier-label">UNA CLASE</div>
-    <div class="tier-row a last"><span style="margin:0 auto">$400</span></div>
+    <div class="tiers">
+      <div class="tier-block">
+        <div class="tier-label">STANDARD</div>
+        <div class="tier-row a"><span>8 clases</span><span>$1800</span></div>
+        <div class="tier-row b"><span>12 clases</span><span>$2050</span></div>
+        <div class="tier-row a last"><span>Pase libre</span><span>$2200</span></div>
+      </div>
+      <div class="tier-block">
+        <div class="tier-label">PREMIUM</div>
+        <div class="tier-row a"><span>8 clases</span><span>$2050</span></div>
+        <div class="tier-row b"><span>12 clases</span><span>$2200</span></div>
+        <div class="tier-row a last"><span>Pase libre</span><span>$2400</span></div>
+      </div>
+      <div class="tier-block">
+        <div class="tier-label">UNA CLASE</div>
+        <div class="tier-row a last"><span style="margin:0 auto">$400</span></div>
+      </div>
+    </div>
     <div class="cuponeras-note">
       <strong>Standard:</strong> incluye solo el acceso a las clases grupales. Ideal si venís a entrenar en los horarios establecidos.<br><br>
       <strong>Premium:</strong> además de las clases, te permite usar el box fuera de esos horarios para hacer rutinas extras por tu cuenta. Perfecta si querés sumar entrenamientos complementarios.
@@ -176,18 +236,20 @@
 
   <div class="horarios" id="horarios">
     <h2>HORARIOS</h2>
-    <div class="horarios-group">
-      <div class="hg-title">CROSSFIT | FUNCIONAL | HYBRID</div>
-      <div class="horarios-grid">
-        <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30, 7:30, 10:30 hs<br>16, 17, 18, 19, 20 hs</div></div>
-        <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 y 11:30 hs</div></div>
+    <div class="horarios-groups">
+      <div class="horarios-group">
+        <div class="hg-title">CROSSFIT | FUNCIONAL | HYBRID</div>
+        <div class="horarios-grid">
+          <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30, 7:30, 10:30 hs<br>16, 17, 18, 19, 20 hs</div></div>
+          <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 y 11:30 hs</div></div>
+        </div>
       </div>
-    </div>
-    <div class="horarios-group">
-      <div class="hg-title">OPEN BOX</div>
-      <div class="horarios-grid">
-        <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30 a 11:00 hs<br>16:00 a 19:30 hs</div></div>
-        <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 a 11:00 hs</div></div>
+      <div class="horarios-group">
+        <div class="hg-title">OPEN BOX</div>
+        <div class="horarios-grid">
+          <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30 a 11:00 hs<br>16:00 a 19:30 hs</div></div>
+          <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 a 11:00 hs</div></div>
+        </div>
       </div>
     </div>
   </div>
