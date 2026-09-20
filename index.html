@@ -8,7 +8,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin:0; padding:0; }
+  @media (prefers-reduced-motion: reduce) {
+    * { transition:none !important; animation:none !important; }
+  }
   body { font-family:'Montserrat',sans-serif; background:#e8e8ea; }
+  .reveal { opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
   .site { max-width:480px; margin:0 auto; background:#F8F8FA; box-shadow:0 0 24px rgba(0,0,0,0.15); }
   h1,h2 { font-family:'Passion One',sans-serif; }
   .navbar { background:#F8F8FA; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid #A6A5A5; }
@@ -24,12 +29,14 @@
   .hero h1 { color:#F8F8FA; font-size:30px; line-height:1.15; }
   .hero p { color:#D3D1C7; font-size:14px; margin-top:10px; line-height:1.6; }
   .hero-photo { display:none; }
-  .cta { margin-top:18px; background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:14px 20px; font-weight:600; font-size:14px; font-family:'Montserrat',sans-serif; cursor:pointer; text-decoration:none; display:inline-block; }
+  .cta { margin-top:18px; background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:14px 20px; font-weight:600; font-size:14px; font-family:'Montserrat',sans-serif; cursor:pointer; text-decoration:none; display:inline-block; transition:transform .2s ease, box-shadow .2s ease; }
+  .cta:hover, .cta:active { transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
   .section { padding:28px 24px; }
   .section h2 { color:#274D9B; font-size:20px; margin-bottom:10px; }
   .section p { color:#3D3D3D; font-size:14px; line-height:1.65; }
   .clases { display:flex; flex-direction:column; gap:10px; margin-top:14px; }
-  .clase-card { background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:14px; }
+  .clase-card { background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:14px; transition:transform .25s ease, box-shadow .25s ease; }
+  .clase-card:hover { transform:translateY(-4px); box-shadow:0 10px 22px rgba(0,0,0,0.08); }
   .clase-card .name { font-weight:600; font-size:14px; color:#3D3D3D; }
   .clase-info { font-size:12px; color:#616160; margin-top:8px; line-height:1.5; }
   .clase-info .label { font-weight:600; color:#274D9B; display:block; margin-top:8px; font-size:11px; }
@@ -46,7 +53,8 @@
   .cuponeras-note strong { color:#F8F8FA; }
   .testimonios { padding:28px 24px; text-align:center; }
   .testimonios-carousel { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:4px 24px 14px; margin:14px -24px 0; }
-  .testimonio-card { flex:0 0 82%; scroll-snap-align:center; background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:16px; text-align:left; }
+  .testimonio-card { flex:0 0 82%; scroll-snap-align:center; background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:16px; text-align:left; transition:transform .25s ease, box-shadow .25s ease; }
+  .testimonio-card:hover { transform:translateY(-4px); box-shadow:0 10px 22px rgba(0,0,0,0.08); }
   .testimonio-card .t-stars { color:#274D9B; font-size:14px; letter-spacing:2px; margin-bottom:8px; }
   .testimonio-card .t-quote { font-size:12px; color:#3D3D3D; line-height:1.6; font-style:italic; }
   .testimonio-card .t-name { font-size:12px; font-weight:600; color:#274D9B; margin-top:10px; }
@@ -59,9 +67,11 @@
   .contacto { background:#274D9B; padding:28px 24px; text-align:center; }
   .contacto h2 { color:#F8F8FA; margin-bottom:10px; }
   .contacto .addr { color:#F8F8FA; font-size:13px; margin-bottom:14px; display:block; text-decoration:underline; }
-  .wa-btn { background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:12px 18px; font-weight:600; font-size:13px; font-family:'Montserrat',sans-serif; text-decoration:none; display:inline-block; }
+  .wa-btn { background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:12px 18px; font-weight:600; font-size:13px; font-family:'Montserrat',sans-serif; text-decoration:none; display:inline-block; transition:transform .2s ease, box-shadow .2s ease; }
+  .wa-btn:hover, .wa-btn:active { transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,0.18); }
   .social-icons { display:flex; justify-content:center; gap:14px; margin-top:16px; }
-  .social-icons a { width:40px; height:40px; border-radius:50%; background:#F8F8FA; display:flex; align-items:center; justify-content:center; }
+  .social-icons a { width:40px; height:40px; border-radius:50%; background:#F8F8FA; display:flex; align-items:center; justify-content:center; transition:transform .2s ease; }
+  .social-icons a:hover { transform:scale(1.12); }
 
   .horarios { background:#3D3D3D; padding:28px 24px; }
   .horarios h2 { color:#F8F8FA; font-size:20px; margin-bottom:16px; }
@@ -74,7 +84,8 @@
   .faq { padding:28px 24px; }
   .faq h2 { color:#274D9B; font-size:20px; margin-bottom:14px; }
   .faq details { border-bottom:0.5px solid #A6A5A5; padding:12px 0; }
-  .faq summary { font-weight:600; font-size:13px; color:#3D3D3D; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  .faq summary { font-weight:600; font-size:13px; color:#3D3D3D; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; transition:color .2s ease; }
+  .faq summary:hover { color:#274D9B; }
   .faq summary::-webkit-details-marker { display:none; }
   .faq summary::after { content:"+"; color:#274D9B; font-size:18px; font-weight:700; }
   .faq details[open] summary::after { content:"\2013"; }
@@ -356,6 +367,23 @@
       menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  var revealEls = document.querySelectorAll('.section, .cuponeras, .horarios, .faq, .testimonios, .mapa, .cta-final, .contacto');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  revealEls.forEach(function (el) { el.classList.add('reveal'); });
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('visible'); });
+  }
 </script>
 </body>
 </html>
