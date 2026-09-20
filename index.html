@@ -38,7 +38,11 @@
   .cuponeras-note { color:#D3D1C7; font-size:12px; line-height:1.6; margin-top:16px; }
   .cuponeras-note strong { color:#F8F8FA; }
   .testimonios { padding:28px 24px; text-align:center; }
-  .stars { color:#274D9B; font-size:20px; letter-spacing:2px; margin:10px 0; }
+  .testimonios-carousel { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; padding:4px 24px 14px; margin:14px -24px 0; }
+  .testimonio-card { flex:0 0 82%; scroll-snap-align:center; background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:16px; text-align:left; }
+  .testimonio-card .t-stars { color:#274D9B; font-size:14px; letter-spacing:2px; margin-bottom:8px; }
+  .testimonio-card .t-quote { font-size:12px; color:#3D3D3D; line-height:1.6; font-style:italic; }
+  .testimonio-card .t-name { font-size:12px; font-weight:600; color:#274D9B; margin-top:10px; }
   .reviews-link { color:#616160; font-size:13px; text-decoration:none; }
   .mapa { padding:0 24px 28px; }
   .mapa iframe { border-radius:8px; }
@@ -198,8 +202,34 @@
 
   <div class="testimonios">
     <h2>TESTIMONIOS</h2>
-    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-    <a class="reviews-link" href="https://share.google/i8IBpX1JyvbvfVaPl" target="_blank" rel="noopener noreferrer">Ver reseñas de Google &rarr;</a>
+    <div class="testimonios-carousel">
+      <div class="testimonio-card">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-quote">"Desde el 2019 voy y la verdad ya es mi segunda casa. Ambiente sano y profe profesional. ¡Excelente!"</p>
+        <div class="t-name">E. Larraura</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-quote">"Hace un tiempo arranqué y fue la mejor decisión. He mejorado increíblemente desde que empecé, gracias a los profes y su atención. Además se hace una re comunidad que te motiva a ir el doble."</p>
+        <div class="t-name">Agustín López</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-quote">"Es el lugar que buscás si querés literalmente trascender tus límites, no es speach, es realidad. Franco, el profe, súper atento a corregir y acompañar tu proceso. Los otros coach son excelentes también. Sumate, no te vas a arrepentir."</p>
+        <div class="t-name">Jacqueline Referovich</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-quote">"Excelente gimnasio, ya sea si hacías ejercicio de antes o recién querés empezar. Los coach son unos genios y le meten toda la onda a la clase. Rutinas sumamente variadas y la gente es de lo mejor, 100% recomendado."</p>
+        <div class="t-name">Tatiana</div>
+      </div>
+      <div class="testimonio-card">
+        <div class="t-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="t-quote">"Si buscás un entrenamiento más completo, buen ambiente y compartir en comunidad, Push Training House es el lugar correcto. Los entrenamientos se adaptan a cada persona, hay horario para elegir, equipamiento disponible y coach que guía cada rutina. ¡Recomiendo!"</p>
+        <div class="t-name">Dahiana Acosta</div>
+      </div>
+    </div>
+    <a class="reviews-link" href="https://share.google/i8IBpX1JyvbvfVaPl" target="_blank" rel="noopener noreferrer">Ver todas las reseñas de Google &rarr;</a>
   </div>
 
   <div class="mapa">
