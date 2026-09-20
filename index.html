@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PUSH Training House</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin:0; padding:0; }
+  body { font-family:'Montserrat',sans-serif; background:#e8e8ea; }
+  .site { max-width:480px; margin:0 auto; background:#F8F8FA; box-shadow:0 0 24px rgba(0,0,0,0.15); }
+  h1,h2 { font-family:'Passion One',sans-serif; }
+  .navbar { background:#F8F8FA; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid #A6A5A5; }
+  .navbar img { height:32px; }
+  .menu-icon { font-size:22px; color:#3D3D3D; }
+  .hero { position:relative; padding:40px 24px; text-align:center; background-image:linear-gradient(rgba(39,77,155,0.72),rgba(39,77,155,0.85)), url('img/hero-bg.jpg'); background-size:cover; background-position:center; }
+  .hero h1 { color:#F8F8FA; font-size:30px; line-height:1.15; }
+  .hero p { color:#D3D1C7; font-size:14px; margin-top:10px; line-height:1.6; }
+  .cta { margin-top:18px; background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:14px 20px; font-weight:600; font-size:14px; font-family:'Montserrat',sans-serif; cursor:pointer; text-decoration:none; display:inline-block; }
+  .section { padding:28px 24px; }
+  .section h2 { color:#274D9B; font-size:20px; margin-bottom:10px; }
+  .section p { color:#3D3D3D; font-size:14px; line-height:1.65; }
+  .clases { display:flex; flex-direction:column; gap:10px; margin-top:14px; }
+  .clase-card { background:#F8F8FA; border:0.5px solid #A6A5A5; border-radius:8px; padding:14px; }
+  .clase-card .name { font-weight:600; font-size:14px; color:#3D3D3D; }
+  .clase-info { font-size:12px; color:#616160; margin-top:8px; line-height:1.5; }
+  .clase-info .label { font-weight:600; color:#274D9B; display:block; margin-top:8px; font-size:11px; }
+  .clase-photos { display:flex; gap:6px; margin-bottom:10px; }
+  .clase-photos img { width:50%; border-radius:6px; display:block; object-fit:cover; aspect-ratio:1/1; }
+  .cuponeras { background:#3D3D3D; padding:28px 24px; }
+  .cuponeras h2 { color:#F8F8FA; }
+  .tier-label { background:#274D9B; color:#F8F8FA; font-weight:600; font-size:13px; padding:8px 12px; border-radius:6px 6px 0 0; margin-top:14px; }
+  .tier-row { display:flex; justify-content:space-between; padding:9px 12px; font-size:13px; color:#3D3D3D; }
+  .tier-row.a { background:#A6A5A5; }
+  .tier-row.b { background:#D3D1C7; }
+  .tier-row.last { border-radius:0 0 6px 6px; }
+  .cuponeras-note { color:#D3D1C7; font-size:12px; line-height:1.6; margin-top:16px; }
+  .cuponeras-note strong { color:#F8F8FA; }
+  .testimonios { padding:28px 24px; text-align:center; }
+  .stars { color:#274D9B; font-size:20px; letter-spacing:2px; margin:10px 0; }
+  .reviews-link { color:#616160; font-size:13px; text-decoration:none; }
+  .mapa { padding:0 24px 28px; }
+  .mapa-box { border:1px dashed #A6A5A5; border-radius:8px; padding:40px 12px; text-align:center; color:#616160; font-size:12px; display:block; text-decoration:none; }
+  .cta-final { background:#3D3D3D; padding:36px 24px; text-align:center; }
+  .cta-final img { max-width:280px; margin-bottom:10px; }
+  .contacto { background:#274D9B; padding:28px 24px; text-align:center; }
+  .contacto h2 { color:#F8F8FA; margin-bottom:10px; }
+  .contacto .addr { color:#F8F8FA; font-size:13px; margin-bottom:14px; display:block; text-decoration:underline; }
+  .wa-btn { background:#F8F8FA; color:#274D9B; border:none; border-radius:6px; padding:12px 18px; font-weight:600; font-size:13px; font-family:'Montserrat',sans-serif; text-decoration:none; display:inline-block; }
+  .ig-link { display:block; margin-top:14px; color:#F8F8FA; font-size:12px; text-decoration:underline; }
+
+  .horarios { background:#3D3D3D; padding:28px 24px; }
+  .horarios h2 { color:#F8F8FA; font-size:20px; margin-bottom:16px; }
+  .horarios-group { margin-bottom:18px; }
+  .horarios-group .hg-title { background:#274D9B; color:#F8F8FA; font-weight:600; font-size:12px; padding:7px 12px; border-radius:6px 6px 0 0; }
+  .horarios-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:#616160; border-radius:0 0 6px 6px; overflow:hidden; }
+  .horarios-grid .hcell { background:#F8F8FA; padding:12px 10px; }
+  .horarios-grid .hcell .day { font-weight:600; font-size:12px; color:#274D9B; margin-bottom:4px; }
+  .horarios-grid .hcell .time { font-size:11px; color:#3D3D3D; line-height:1.5; }
+  .faq { padding:28px 24px; }
+  .faq h2 { color:#274D9B; font-size:20px; margin-bottom:14px; }
+  .faq details { border-bottom:0.5px solid #A6A5A5; padding:12px 0; }
+  .faq summary { font-weight:600; font-size:13px; color:#3D3D3D; cursor:pointer; list-style:none; display:flex; justify-content:space-between; align-items:center; }
+  .faq summary::-webkit-details-marker { display:none; }
+  .faq summary::after { content:"+"; color:#274D9B; font-size:18px; font-weight:700; }
+  .faq details[open] summary::after { content:"\2013"; }
+  .faq .faq-a { font-size:12px; color:#616160; margin-top:8px; line-height:1.6; }
+</style>
+</head>
+<body>
+<div class="site">
+
+  <div class="navbar">
+    <img src="img/logo.png" alt="PUSH Training House logo">
+    <span class="menu-icon">&#9776;</span>
+  </div>
+
+  <div class="hero">
+    <h1>CHALLENGE YOUR LIMITS</h1>
+    <p>Entrenamientos funcionales, CrossFit y una comunidad que te acompaña a superar tus límites.</p>
+    <a class="cta" href="https://wa.me/59898469189?text=Hola%2C%20quiero%20reservar%20mi%20clase%20de%20prueba%20gratis%20en%20PUSH%20Training%20House" target="_blank" rel="noopener noreferrer">Reservá tu clase de prueba GRATIS</a>
+  </div>
+
+  <div class="section">
+    <h2>QUIÉNES SOMOS</h2>
+    <p>Somos un box de CrossFit ubicado en Jacinto Vera, Montevideo. Acá no venís solo a entrenar: venís a transformarte, acompañado siempre por una comunidad que te impulsa a ir más allá.</p>
+
+    <div class="clase-info" style="margin-top:16px;">
+      <span class="label">Misión</span>Transformar vidas a través del entrenamiento y la comunidad. En PUSH, no entrenás solo: entrenás acompañado, guiado y motivado.
+      <span class="label">Visión</span>Ser el box de referencia para quienes buscan técnica, resultados y un grupo que empuje de verdad.
+      <span class="label">Valores</span>Superación, constancia, comunidad, disfrute y evolución técnica.
+    </div>
+
+    <div style="background:#274D9B; border-radius:8px; padding:16px; margin-top:16px;">
+      <div style="color:#F8F8FA; font-weight:600; font-size:13px; margin-bottom:8px;">Nuestra historia</div>
+      <p style="color:#D3D1C7; font-size:12px; line-height:1.6; margin:0 0 10px;">Todo cambio arranca con un impulso. PUSH nació de esas ganas de avanzar. Acá no solo entrenás: te transformás. Y lo que lográs, te lo llevás para siempre.</p>
+      <p style="color:#D3D1C7; font-size:12px; line-height:1.6; margin:0;">PUSH es más que un box. Es un grupo de personas que se desafían y se apoyan. Es reír, transpirar, aprender y volver a intentarlo. Lo que ganás acá no son solo músculos: es confianza, disciplina y una energía que se contagia.</p>
+    </div>
+
+    <div style="border-left:3px solid #274D9B; padding:12px 14px; margin-top:16px; background:#F8F8FA;">
+      <div style="color:#274D9B; font-weight:600; font-size:12px; margin-bottom:6px;">Manifiesto</div>
+      <p style="color:#3D3D3D; font-size:12px; line-height:1.6; margin:0; font-style:italic;">Cuando tu cuerpo quiere parar y tu cabeza duda, escuchás esa voz: PUSH. No te quedás atrás, porque nadie se queda atrás. Acá cada logro es colectivo. Entrenamos juntos, crecemos juntos y llevamos esa fuerza afuera del box.</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>CLASES</h2>
+    <div class="clases">
+
+      <div class="clase-card">
+        <div class="clase-photos">
+          <img src="img/crossfit-1.jpg" alt="Clase CrossFit - barra">
+          <img src="img/crossfit-2.jpg" alt="Clase CrossFit - soga">
+        </div>
+        <div class="name">CrossFit</div>
+        <div class="clase-info">
+          <span class="label">¿En qué consiste?</span>Combina <strong>fuerza, levantamiento olímpico y movimientos gimnásticos</strong>. Ejercicios funcionales, variados y de alta intensidad.
+          <span class="label">¿Qué esperar?</span><strong>Exigencia media-alta.</strong> Complejidad progresiva.
+          <span class="label">Ideal para vos si...</span>Querés <strong>mejorar tu rendimiento físico</strong> y desafiarte día a día.
+        </div>
+      </div>
+
+      <div class="clase-card">
+        <div class="clase-photos">
+          <img src="img/hybrid-1.jpg" alt="Clase Hybrid - trineo">
+          <img src="img/hybrid-2.jpg" alt="Clase Hybrid - pelota">
+        </div>
+        <div class="name">Hybrid</div>
+        <div class="clase-info">
+          <span class="label">¿En qué consiste?</span>Entrenamiento que combina <strong>estaciones de cardio y fuerza</strong>, pensado para mejorar tu resistencia, coordinación y potencia.
+          <span class="label">¿Qué esperar?</span><strong>Exigencia media-alta.</strong> Mezcla de ejercicios de resistencia cardiovascular y muscular.
+          <span class="label">Ideal para vos si...</span>Querés un <strong>entrenamiento diferente</strong>, donde la resistencia sea protagonista.
+        </div>
+      </div>
+
+      <div class="clase-card">
+        <div class="clase-photos">
+          <img src="img/funcional-1.jpg" alt="Clase Funcional - TRX">
+          <img src="img/funcional-2.jpg" alt="Clase Funcional - core con pelota">
+        </div>
+        <div class="name">Funcional</div>
+        <div class="clase-info">
+          <span class="label">¿En qué consiste?</span><strong>Movimientos que usamos en la vida cotidiana</strong> (empujar, saltar, correr, agacharse, etc).
+          <span class="label">¿Qué esperar?</span><strong>Exigencia baja-media.</strong> Movimientos simples y progresivos.
+          <span class="label">Ideal para vos si...</span>Estás empezando y buscás <strong>mejorar fuerza, resistencia, movilidad</strong> de forma segura y divertida.
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="cuponeras">
+    <h2>CUPONERAS</h2>
+    <div class="tier-label">STANDARD</div>
+    <div class="tier-row a"><span>8 clases</span><span>$1800</span></div>
+    <div class="tier-row b"><span>12 clases</span><span>$2050</span></div>
+    <div class="tier-row a last"><span>Pase libre</span><span>$2200</span></div>
+    <div class="tier-label">PREMIUM</div>
+    <div class="tier-row a"><span>8 clases</span><span>$2050</span></div>
+    <div class="tier-row b"><span>12 clases</span><span>$2200</span></div>
+    <div class="tier-row a last"><span>Pase libre</span><span>$2400</span></div>
+    <div class="tier-label">UNA CLASE</div>
+    <div class="tier-row a last"><span style="margin:0 auto">$400</span></div>
+    <div class="cuponeras-note">
+      <strong>Standard:</strong> incluye solo el acceso a las clases grupales. Ideal si venís a entrenar en los horarios establecidos.<br><br>
+      <strong>Premium:</strong> además de las clases, te permite usar el box fuera de esos horarios para hacer rutinas extras por tu cuenta. Perfecta si querés sumar entrenamientos complementarios.
+    </div>
+  </div>
+
+  <div class="horarios">
+    <h2>HORARIOS</h2>
+    <div class="horarios-group">
+      <div class="hg-title">CROSSFIT | FUNCIONAL | HYBRID</div>
+      <div class="horarios-grid">
+        <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30, 7:30, 10:30 hs<br>16, 17, 18, 19, 20 hs</div></div>
+        <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 y 11:30 hs</div></div>
+      </div>
+    </div>
+    <div class="horarios-group">
+      <div class="hg-title">OPEN BOX</div>
+      <div class="horarios-grid">
+        <div class="hcell"><div class="day">Lunes a viernes</div><div class="time">6:30 a 11:00 hs<br>16:00 a 19:30 hs</div></div>
+        <div class="hcell"><div class="day">Sábados</div><div class="time">10:30 a 11:00 hs</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq">
+    <h2>PREGUNTAS FRECUENTES</h2>
+    <details>
+      <summary>¿Necesito experiencia previa para empezar?</summary>
+      <div class="faq-a">No. Tenemos clases de distintos niveles de exigencia (Funcional, Hybrid, CrossFit) y los movimientos se adaptan a tu punto de partida.</div>
+    </details>
+    <details>
+      <summary>¿Qué tengo que llevar a mi primera clase?</summary>
+      <div class="faq-a">Ropa cómoda, calzado deportivo, una botella de agua y muchas ganas. Nosotros te guiamos en todo lo demás.</div>
+    </details>
+    <details>
+      <summary>¿Cómo reservo mi clase de prueba gratis?</summary>
+      <div class="faq-a">Escribinos por WhatsApp desde el botón de esta web y coordinamos juntos el día y horario que mejor te quede.</div>
+    </details>
+    <details>
+      <summary>¿Puedo cambiar el horario de mi clase reservada?</summary>
+      <div class="faq-a">Sí, escribinos por WhatsApp y te ayudamos a reprogramarla sin problema.</div>
+    </details>
+    <details>
+      <summary>¿Cuál es la diferencia entre las cuponeras Standard y Premium?</summary>
+      <div class="faq-a">Standard incluye acceso a las clases grupales en los horarios establecidos. Premium además te permite usar el box fuera de esos horarios para entrenar por tu cuenta.</div>
+    </details>
+  </div>
+
+  <div class="testimonios">
+    <h2>TESTIMONIOS</h2>
+    <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+    <a class="reviews-link" href="https://share.google/i8IBpX1JyvbvfVaPl" target="_blank" rel="noopener noreferrer">Ver reseñas de Google &rarr;</a>
+  </div>
+
+  <div class="mapa">
+    <h2 style="color:#274D9B;font-size:20px;margin-bottom:10px;">UBICACIÓN</h2>
+    <a class="mapa-box" href="https://maps.app.goo.gl/wm7KRFfury6WLcKH8" target="_blank" rel="noopener noreferrer">
+      General Flores 2871, Jacinto Vera, Montevideo<br>Ver en Google Maps &rarr;
+    </a>
+  </div>
+
+  <div class="cta-final">
+    <img src="img/cta-final.png" alt="Challenge your limits">
+  </div>
+
+  <div class="contacto">
+    <h2>CONTACTO</h2>
+    <a class="addr" href="https://maps.app.goo.gl/wm7KRFfury6WLcKH8" target="_blank" rel="noopener noreferrer">General Flores 2871, Jacinto Vera, Montevideo</a>
+    <a class="wa-btn" href="https://wa.me/59898469189?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20PUSH%20Training%20House" target="_blank" rel="noopener noreferrer">Escribinos por WhatsApp</a>
+    <a class="ig-link" href="https://www.instagram.com/pushtraininghouse" target="_blank" rel="noopener noreferrer">Seguinos en Instagram @pushtraininghouse</a>
+  </div>
+
+</div>
+</body>
+</html>
