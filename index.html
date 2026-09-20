@@ -14,6 +14,11 @@
   .navbar { background:#F8F8FA; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid #A6A5A5; }
   .navbar img { height:32px; }
   .menu-icon { font-size:22px; color:#3D3D3D; }
+  .menu-btn { background:none; border:none; cursor:pointer; padding:4px; line-height:0; }
+  .nav-menu { display:none; flex-direction:column; background:#F8F8FA; border-bottom:0.5px solid #A6A5A5; }
+  .nav-menu.open { display:flex; }
+  .nav-menu a { padding:12px 20px; color:#3D3D3D; text-decoration:none; font-size:14px; font-weight:600; border-top:0.5px solid #A6A5A5; }
+  .nav-menu a:first-child { border-top:none; }
   .hero { position:relative; padding:40px 24px; text-align:center; background-image:linear-gradient(rgba(39,77,155,0.72),rgba(39,77,155,0.85)), url('img/hero-bg.jpg'); background-size:cover; background-position:center; }
   .hero h1 { color:#F8F8FA; font-size:30px; line-height:1.15; }
   .hero p { color:#D3D1C7; font-size:14px; margin-top:10px; line-height:1.6; }
@@ -79,8 +84,16 @@
 
   <div class="navbar">
     <img src="img/logo.png" alt="PUSH Training House logo">
-    <span class="menu-icon">&#9776;</span>
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="menu-icon">&#9776;</span>
+    </button>
   </div>
+  <nav class="nav-menu" id="navMenu">
+    <a href="#clases">Clases</a>
+    <a href="#cuponeras">Cuponeras</a>
+    <a href="#horarios">Horarios</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
   <div class="hero">
     <h1>CHALLENGE YOUR LIMITS</h1>
@@ -94,7 +107,7 @@
     <p style="margin-top:10px; color:#274D9B; font-weight:600; font-size:13px; font-style:italic;">Entrenás acompañado, guiado y motivado. Lo que conquistás acá, te lo llevás a tu vida.</p>
   </div>
 
-  <div class="section">
+  <div class="section" id="clases">
     <h2>CLASES</h2>
     <div class="clases">
 
@@ -140,7 +153,7 @@
     </div>
   </div>
 
-  <div class="cuponeras">
+  <div class="cuponeras" id="cuponeras">
     <h2>CUPONERAS</h2>
     <div class="tier-label">STANDARD</div>
     <div class="tier-row a"><span>8 clases</span><span>$1800</span></div>
@@ -158,7 +171,7 @@
     </div>
   </div>
 
-  <div class="horarios">
+  <div class="horarios" id="horarios">
     <h2>HORARIOS</h2>
     <div class="horarios-group">
       <div class="hg-title">CROSSFIT | FUNCIONAL | HYBRID</div>
@@ -242,7 +255,7 @@
     <img src="img/cta-final.png" alt="Challenge your limits">
   </div>
 
-  <div class="contacto">
+  <div class="contacto" id="contacto">
     <h2>CONTACTO</h2>
     <a class="addr" href="https://maps.app.goo.gl/wm7KRFfury6WLcKH8" target="_blank" rel="noopener noreferrer">General Flores 2871, Jacinto Vera, Montevideo</a>
     <a class="wa-btn" href="https://wa.me/59898469189?text=Hola%2C%20quiero%20m%C3%A1s%20informaci%C3%B3n%20sobre%20PUSH%20Training%20House" target="_blank" rel="noopener noreferrer">Escribinos por WhatsApp</a>
@@ -257,5 +270,19 @@
   </div>
 
 </div>
+<script>
+  var menuBtn = document.getElementById('menuBtn');
+  var navMenu = document.getElementById('navMenu');
+  menuBtn.addEventListener('click', function () {
+    var isOpen = navMenu.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+  navMenu.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navMenu.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
 </body>
 </html>
