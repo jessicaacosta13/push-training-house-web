@@ -14,6 +14,7 @@
   .navbar { background:#F8F8FA; padding:14px 20px; display:flex; align-items:center; justify-content:space-between; border-bottom:0.5px solid #A6A5A5; }
   .navbar img { height:32px; }
   .menu-icon { font-size:22px; color:#3D3D3D; }
+  .nav-wrap { position:sticky; top:0; z-index:100; }
   .menu-btn { background:none; border:none; cursor:pointer; padding:4px; line-height:0; }
   .nav-menu { display:none; flex-direction:column; background:#F8F8FA; border-bottom:0.5px solid #A6A5A5; }
   .nav-menu.open { display:flex; }
@@ -82,18 +83,20 @@
 <body>
 <div class="site">
 
-  <div class="navbar">
-    <img src="img/logo.png" alt="PUSH Training House logo">
-    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
-      <span class="menu-icon">&#9776;</span>
-    </button>
+  <div class="nav-wrap">
+    <div class="navbar">
+      <img src="img/logo.png" alt="PUSH Training House logo">
+      <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+        <span class="menu-icon">&#9776;</span>
+      </button>
+    </div>
+    <nav class="nav-menu" id="navMenu">
+      <a href="#clases">Clases</a>
+      <a href="#cuponeras">Cuponeras</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </div>
-  <nav class="nav-menu" id="navMenu">
-    <a href="#clases">Clases</a>
-    <a href="#cuponeras">Cuponeras</a>
-    <a href="#horarios">Horarios</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
 
   <div class="hero">
     <h1>CHALLENGE YOUR LIMITS</h1>
