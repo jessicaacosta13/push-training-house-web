@@ -1,11 +1,15 @@
-# Imágenes que faltan
+# Imágenes
 
-Ya están cargadas: `logo.png`, `hero-bg.jpg`, `crossfit-1.jpg` (soga), `hybrid-1.jpg` (trineo), `hybrid-2.jpg` (wallball), `funcional-1.jpg` (TRX), `funcional-2.jpg` (remo con mancuerna), `cta-final.png`.
+Todas las imágenes que referencia `index.html` ya están cargadas:
 
-Solo falta este archivo que referencia `index.html`:
+- `logo.png`
+- `hero-bg.jpg`
+- `crossfit-1.jpg` (soga)
+- `crossfit-2.jpg` (subida en rig)
+- `hybrid-1.jpg` (trineo)
+- `hybrid-2.jpg` (wallball)
+- `funcional-1.jpg` (TRX)
+- `funcional-2.jpg` (remo con mancuerna)
+- `cta-final.png`
 
-| Archivo esperado      | Dónde se usa                                        |
-|------------------------|------------------------------------------------------|
-| `crossfit-2.jpg`        | Segunda foto de la clase CrossFit (el chico haciendo el setup, que todavía no llegó) |
-
-Hasta que no esté ese archivo, ese espacio va a aparecer como imagen rota al abrir la página en el navegador — el resto del sitio ya está completo.
+No falta ninguna foto por ahora.
