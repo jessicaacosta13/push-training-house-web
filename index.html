@@ -358,7 +358,7 @@
       <a href="https://maps.app.goo.gl/wm7KRFfury6WLcKH8" target="_blank" rel="noopener noreferrer" aria-label="Ubicación">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#274D9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
       </a>
-      <a href="https://play.google.com/store/apps/details?id=com.ciceridev.SmartGymApp" target="_blank" rel="noopener noreferrer" aria-label="App Smart Gym">
+      <a href="https://play.google.com/store/apps/details?id=com.ciceridev.SmartGymApp" id="appLink" target="_blank" rel="noopener noreferrer" aria-label="App Smart Gym">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#274D9B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2" ry="2"></rect><line x1="11" y1="18" x2="13" y2="18"></line></svg>
       </a>
     </div>
@@ -378,6 +378,11 @@
       menuBtn.setAttribute('aria-expanded', 'false');
     });
   });
+
+  var appLink = document.getElementById('appLink');
+  if (appLink && /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream) {
+    appLink.href = 'https://apps.apple.com/app/id6477968938';
+  }
 
   var revealEls = document.querySelectorAll('.section, .cuponeras, .horarios, .faq, .testimonios, .mapa, .cta-final, .contacto');
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
